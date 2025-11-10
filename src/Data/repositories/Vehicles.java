@@ -22,8 +22,8 @@ public class Vehicles implements VehicleRepository {
 
     @Override
     public Vehicle findById(int id) {
-            for (int i = 0; i < vehicles.size(); i++) {
-                Vehicle vehicle = vehicles.get(i);
+            for (int counter = 0; counter < vehicles.size(); counter++) {
+                Vehicle vehicle = vehicles.get(counter);
                 if (vehicle.getId() == id) {
                     return vehicle;
                 }

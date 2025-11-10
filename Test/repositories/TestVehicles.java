@@ -27,25 +27,25 @@ public void testNotAvailable() {
 
 @Test
 public void testaddVehicle() {
-    Vehicle savedVehicle = new Vehicle("O001", "John Doe", "123 Main St", 1234, owner, "john@example.com","2004");
-    Vehicle result = vehicle.save(savedVehicle);
-    assertEquals(1234, vehicle.count());
+    Vehicle myVehicle = new Vehicle("O001", "John Doe", "123 Main St", 1, owner, "john@example.com","2004");
+    Vehicle result = vehicle.save(myVehicle);
+    assertEquals(1, vehicle.count());
 }
 
 @Test
 public void testFindVehicleById() {
-    Vehicle Vehicle = new Vehicle("O001", "John Doe", "123 Main St", 1234, owner, "john@example.com","2004");;
+    Vehicle Vehicle = new Vehicle("O001", "John Doe", "123 Main St", 1, owner, "john@example.com","2004");;
     Vehicle result = vehicle.save(Vehicle);
-    assertEquals(1234, vehicle.count());
+    assertEquals(1, vehicle.count());
     assertEquals(Vehicle, vehicle.findById(Vehicle.getId()));
 
 }
 
 @Test
 public void testDeleteVehicleById() {
-    Vehicle savedVehicle = new Vehicle("O001", "John Doe", "123 Main St", 1234, owner, "john@example.com","2004");;
-    Vehicle result = vehicle.save(savedVehicle);
-    vehicle.deleteById(1234);
+    Vehicle myVehicle = new Vehicle("O001", "John Doe", "123 Main St", 1, owner, "john@example.com","2004");;
+    Vehicle result = vehicle.save(myVehicle);
+    vehicle.deleteById(1);
     assertEquals(1, vehicle.count());
 }
 }
