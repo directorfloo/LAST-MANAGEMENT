@@ -11,15 +11,7 @@ public class Ticket {
     private Officer issuer;
     private LocalDateTime dateOfBooking;
     private LocalDateTime dateOfPayment;
-    public Ticket(int id, Vehicle vehicle, Offence offence, Officer issuer) {
-        this.id = id;
-        this.vehicle = vehicle;
-        this.offence = offence;
-        this.haspaid = false;
-        this.issuer = issuer;
-        this.dateOfBooking = LocalDateTime.now();
-        this.dateOfPayment = LocalDateTime.now();
-    }
+
 
     public int getId() {
         return id;

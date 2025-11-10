@@ -13,16 +13,8 @@ public class Vehicle {
     private String Year;
     private List<Ticket> tickets;
 
-    public Vehicle(String name, String model, String colour, int id,Owner owner,String PlateNumber, String Year ) {
 
-        this.name = name;
-        this.model = model;
-        this.colour = colour;
-        this.id = id;
-        this.owner = owner;
-        this.tickets = new ArrayList<>();
 
-    }
     public String getName() {
         return name;
     }

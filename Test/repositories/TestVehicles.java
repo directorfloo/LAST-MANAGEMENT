@@ -11,12 +11,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 public class TestVehicles {
     private VehicleRepository vehicle;
-    private Owner owner;
+
 
 @BeforeEach
 public void setUp() {
      vehicle = new Vehicles();
-     owner = new Owner("Titi", "No1,Emmanuel onoaha street", "08104576967", "male", "olacolon@gmail.com", "134564");
+
 }
 
 
@@ -27,25 +27,56 @@ public void testNotAvailable() {
 
 @Test
 public void testaddVehicle() {
-    Vehicle myVehicle = new Vehicle("O001", "John Doe", "123 Main St", 1, owner, "john@example.com","2004");
-    Vehicle result = vehicle.save(myVehicle);
+    Vehicle myVehicle = new Vehicle();
+    vehicle.save(myVehicle);
     assertEquals(1, vehicle.count());
 }
 
 @Test
 public void testFindVehicleById() {
-    Vehicle Vehicle = new Vehicle("O001", "John Doe", "123 Main St", 1, owner, "john@example.com","2004");;
-    Vehicle result = vehicle.save(Vehicle);
+    Vehicle myVehicle = new Vehicle();
+    vehicle.save(myVehicle);
     assertEquals(1, vehicle.count());
-    assertEquals(Vehicle, vehicle.findById(Vehicle.getId()));
+    assertEquals(myVehicle, vehicle.findById(myVehicle.getId()));
 
 }
 
 @Test
 public void testDeleteVehicleById() {
-    Vehicle myVehicle = new Vehicle("O001", "John Doe", "123 Main St", 1, owner, "john@example.com","2004");;
-    Vehicle result = vehicle.save(myVehicle);
+    Vehicle myVehicle = new Vehicle();
+    vehicle.save(myVehicle);
     vehicle.deleteById(1);
-    assertEquals(1, vehicle.count());
+    assertEquals(0, vehicle.count());
 }
+
+@Test
+public void testFindAllVehicles() {
+    Vehicle myVehicle = new Vehicle();
+    vehicle.save(myVehicle);
+    Vehicle mVehicle = new Vehicle();
+    vehicle.save(mVehicle);
+    assertEquals(2, vehicle.count());
+
+}
+@Test
+public void  testDeleteAllVehicle() {
+    Vehicle myVehicle = new Vehicle();
+    vehicle.save(myVehicle);
+    Vehicle mVehicle = new Vehicle();
+    vehicle.save(mVehicle);
+    vehicle.deleteAll();
+    assertEquals(0, vehicle.count());
+}
+@Test
+public void   testDeleteVehicle() {
+    Vehicle myVehicle = new Vehicle();
+    vehicle.save(myVehicle);
+    Vehicle mVehicle = new Vehicle();
+    vehicle.save(mVehicle);
+    vehicle.delete(myVehicle);
+    vehicle.delete(mVehicle);
+    assertEquals(0, vehicle.count());
+
+}
+
 }

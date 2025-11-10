@@ -7,14 +7,7 @@ public class Owner {
     private String gender;
     private String email;
     private String id;
-    public Owner(String name, String address, String phone, String gender, String email, String id) {
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        this.gender = gender;
-        this.email = email;
-        this.id = id;
-    }
+
 
     public String getName() {
         return name;

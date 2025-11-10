@@ -11,19 +11,25 @@ public class Vehicles implements VehicleRepository {
 
     @Override
     public Vehicle save(Vehicle vehicle) {
-        if (vehicle == null) {
-            throw new IllegalArgumentException("Vehicle cannot be null");
+        if (vehicle.getId() == 0) {
+            generateId();
+            vehicle.setId(count);
+            vehicles.add(vehicle);
+
+
         }
-        vehicles.add(vehicle);
-        count++;
         return vehicle;
+
+    }
+
+    private void generateId() {
+        count++;
 
     }
 
     @Override
     public Vehicle findById(int id) {
-            for (int counter = 0; counter < vehicles.size(); counter++) {
-                Vehicle vehicle = vehicles.get(counter);
+                for(Vehicle vehicle : vehicles) {
                 if (vehicle.getId() == id) {
                     return vehicle;
                 }
@@ -54,14 +60,13 @@ public class Vehicles implements VehicleRepository {
 
 
     @Override
-    public void delete(Vehicle vehicle) {
+    public void delete(Vehicle vehicle ) {
         vehicles.remove(vehicle);
-
     }
 
 
     @Override
     public long count() {
-        return count;
+        return  vehicles.size();
     }
 }
