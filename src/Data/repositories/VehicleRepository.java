@@ -12,6 +12,8 @@ public interface VehicleRepository {
     void deleteAll();
     void delete(Vehicle vehicle);
     long count();
+    Vehicle findByChaiseNumber(String chaiseNumber);
+
 
     
 }

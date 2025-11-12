@@ -11,7 +11,9 @@ public class Vehicle {
     private  Owner  owner;
     private int id;
     private String Year;
+    private String  chaiseNumber;
     private List<Ticket> tickets;
+
 
 
 
@@ -63,5 +65,11 @@ public class Vehicle {
     }
     public void setYear(String Year) {
         this.Year = Year;
+    }
+    public String getChaiseNumber() {
+        return chaiseNumber;
+    }
+    public void setChaiseNumber(String chaiseNumber) {
+        this.chaiseNumber = chaiseNumber;
     }
 }

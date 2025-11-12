@@ -1,7 +1,7 @@
 package Data.repositories;
 
 import Data.models.Ticket;
-import Data.models.Vehicle;
+
 
 import java.util.List;
 

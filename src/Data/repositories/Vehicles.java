@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Vehicles implements VehicleRepository {
- private   List<Vehicle> vehicles = new ArrayList<>();
- private int count;
+ private  static List<Vehicle> vehicles = new ArrayList<>();
+ private   int count;
 
     @Override
     public Vehicle save(Vehicle vehicle) {
@@ -68,5 +68,14 @@ public class Vehicles implements VehicleRepository {
     @Override
     public long count() {
         return  vehicles.size();
+    }
+    @Override
+    public Vehicle findByChaiseNumber(String chaiseNumber) {
+        for(Vehicle vehicle : vehicles) {
+            if (vehicle.getChaiseNumber().equals(chaiseNumber)) {
+                return vehicle;
+            }
+        }
+        return null;
     }
 }
