@@ -1,4 +1,4 @@
-package Data.models;
+package data.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Vehicle {
     private int id;
     private String Year;
     private String  chaiseNumber;
-    private List<Ticket> tickets;
+    private List<Ticket> tickets = new ArrayList<Ticket>();
 
 
 
@@ -72,4 +72,6 @@ public class Vehicle {
     public void setChaiseNumber(String chaiseNumber) {
         this.chaiseNumber = chaiseNumber;
     }
+
+
 }

@@ -1,6 +1,6 @@
-package Data.repositories;
+package data.repositories;
 
-import Data.models.Vehicle;
+import data.models.Vehicle;
 
 import java.util.List;
 

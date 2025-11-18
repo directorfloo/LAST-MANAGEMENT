@@ -1,9 +1,9 @@
 package repositories;
 
-import Data.models.Ticket;
-import Data.repositories.TicketRepository;
+import data.models.Ticket;
+import data.repositories.TicketRepository;
 
-import Data.repositories.Tickets;
+import data.repositories.Tickets;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

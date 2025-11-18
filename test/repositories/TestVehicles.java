@@ -1,8 +1,8 @@
 package repositories;
-import Data.models.Vehicle;
+import data.models.Vehicle;
 
-import Data.repositories.VehicleRepository;
-import Data.repositories.Vehicles;
+import data.repositories.VehicleRepository;
+import data.repositories.Vehicles;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

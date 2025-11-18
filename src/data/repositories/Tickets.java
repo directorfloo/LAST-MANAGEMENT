@@ -1,13 +1,13 @@
-package Data.repositories;
+package data.repositories;
 
-import Data.models.Ticket;
+import data.models.Ticket;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Tickets  implements TicketRepository {
     private int count;
-private List<Ticket> tickets = new ArrayList<>();
+private  static List<Ticket> tickets = new ArrayList<>();
 
     @Override
     public Ticket save(Ticket ticket) {
@@ -45,9 +45,13 @@ private List<Ticket> tickets = new ArrayList<>();
 
     @Override
     public void deleteById(int id) {
-
-            tickets.removeIf(ticket -> ticket.getId() == id);
+        for (Ticket ticket : tickets) {
+            if (ticket.getId() == id) {
+                tickets.remove(ticket);
+                break;
             }
+        }
+    }
 
 
     @Override

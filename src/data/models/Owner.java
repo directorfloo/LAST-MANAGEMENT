@@ -1,4 +1,4 @@
-package Data.models;
+package data.models;
 
 public class Owner {
     private String name;

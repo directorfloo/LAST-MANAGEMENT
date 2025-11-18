@@ -1,9 +1,9 @@
 package services;
 
 
-import Data.models.Vehicle;
-import Data.repositories.VehicleRepository;
-import Data.repositories.Vehicles;
+import data.models.Vehicle;
+import data.repositories.VehicleRepository;
+import data.repositories.Vehicles;
 import dtos.requests.RegisterVehicleRequest;
 import dtos.responses.RegisterVehicleResponse;
 

@@ -1,6 +1,6 @@
-package Data.repositories;
+package data.repositories;
 
-import Data.models.Ticket;
+import data.models.Ticket;
 
 
 import java.util.List;

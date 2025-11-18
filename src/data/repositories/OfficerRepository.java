@@ -1,6 +1,6 @@
-package Data.repositories;
+package data.repositories;
 
-import Data.models.Officer;
+import data.models.Officer;
 
 
 import java.util.List;
@@ -13,6 +13,7 @@ public interface OfficerRepository {
     void deleteById(int id);
     void deleteAll();
     void delete(Officer officer);
+    Officer findByEmail(String email);
     long count();
 
 }

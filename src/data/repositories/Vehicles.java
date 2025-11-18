@@ -1,6 +1,6 @@
-package Data.repositories;
+package data.repositories;
 
-import Data.models.Vehicle;
+import data.models.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class Vehicles implements VehicleRepository {
                     return vehicle;
                 }
             }
-            throw new IllegalArgumentException("Vehicle with id " + id + " not found");
+            return null;
         }
 
 
@@ -47,7 +47,12 @@ public class Vehicles implements VehicleRepository {
 
     @Override
     public void deleteById(int id) {
-        vehicles.removeIf(vehicle -> vehicle.getId() == id);
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getId() == id) {
+                vehicles.remove(vehicle);
+                break;
+            }
+        };
 
     }
 

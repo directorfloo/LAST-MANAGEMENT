@@ -1,12 +1,12 @@
-package Data.repositories;
+package data.repositories;
 
-import Data.models.Officer;
+import data.models.Officer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Officers implements OfficerRepository {
-    private List<Officer> officers = new ArrayList<>();
+    private static List<Officer> officers = new ArrayList<>();
     private int count;
 
     @Override
@@ -43,8 +43,12 @@ public class Officers implements OfficerRepository {
 
     @Override
     public void deleteById(int id) {
-
-            officers.removeIf(officer -> officer.getId() == id);
+        for(Officer officer : officers) {
+            if(officer.getId() == id) {
+                officers.remove(officer);
+                break;
+            }
+        }
     }
 
 
@@ -59,6 +63,16 @@ public class Officers implements OfficerRepository {
     public void delete(Officer officer) {
         officers.remove(officer);
 
+    }
+
+    @Override
+    public Officer findByEmail(String email) {
+        for (Officer officer : officers) {
+            if (officer.getEmail().equals(email)) {
+                return officer;
+            }
+        }
+        return null;
     }
 
 

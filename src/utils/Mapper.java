@@ -1,9 +1,10 @@
 package utils;
 
-import Data.models.Owner;
-import Data.models.Vehicle;
+import data.models.Officer;
+import data.models.Owner;
+import data.models.Vehicle;
+import dtos.requests.RegisterOfficerRequest;
 import dtos.requests.RegisterVehicleRequest;
-import dtos.responses.RegisterVehicleResponse;
 
 public class Mapper {
     public static Vehicle map(RegisterVehicleRequest request) {
@@ -22,8 +23,13 @@ public class Mapper {
         return vehicle;
 
 
-
-
-
     }
+    public static Officer map(RegisterOfficerRequest request) {
+        Officer officer = new Officer();
+        officer.setName(request.getOfficerName());
+        officer.setId(request.getOfficerId());
+        officer.setEmail(request.getOfficerEmail());
+        return officer;
+    }
+
 }

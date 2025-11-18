@@ -1,10 +1,10 @@
 package repositories;
 
-import Data.models.Officer;
+import data.models.Officer;
 
-import Data.repositories.OfficerRepository;
+import data.repositories.OfficerRepository;
 
-import Data.repositories.Officers;
+import data.repositories.Officers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
