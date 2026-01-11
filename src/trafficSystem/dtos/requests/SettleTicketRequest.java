@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class SettleTicketRequest {
      private String ticketId;
      private String vehicleId;
-     private LocalDateTime dateOfPayment = LocalDateTime.now();
+     private String dateOfPayment;
      private double amount;
 
 }

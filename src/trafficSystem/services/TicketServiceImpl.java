@@ -13,7 +13,7 @@ import trafficSystem.dtos.requests.IssueTicketRequest;
 import trafficSystem.dtos.requests.SettleTicketRequest;
 import trafficSystem.dtos.requests.ViewAllTicketsRequest;
 import trafficSystem.dtos.requests.ViewTicketRequest;
-import trafficSystem.dtos.responses.IssueTicketReponse;
+import trafficSystem.dtos.responses.IssueTicketResponse;
 import trafficSystem.dtos.responses.SettleTicketResponse;
 import trafficSystem.dtos.responses.ViewAllTicketsResponse;
 import trafficSystem.dtos.responses.ViewTicketResponse;
@@ -34,22 +34,29 @@ public class TicketServiceImpl implements TicketService {
 
 
     @Override
-    public IssueTicketReponse issueTicket(IssueTicketRequest request) {
-        Officer officer = officers.findByEmail(request.getOfficerEmail());
-        if (officer == null) {
-            throw new IllegalArgumentException("Officer not found");
-        }
+    public IssueTicketResponse issueTicket(IssueTicketRequest request) {
+//        Officer officer = officers.findByEmail(request.getOfficerEmail());
+//        if (officer == null) {
+//            throw new IllegalArgumentException("Officer not found");
+//        }
         Optional<Vehicle> vehicle = vehicles.findById(request.getVehicleId());
         if (!vehicle.isPresent()) {
             throw new IllegalArgumentException("Vehicle not found");
         }
+        Optional<Officer> saveOfficer = officers.findById(request.getOfficerId());
+        if (!saveOfficer.isPresent()) throw new IllegalArgumentException("Officer not found");
+
+        Vehicle foundVehicle = vehicle.get();
 
         Ticket ticket = new Ticket();
-        ticket.setIssuer(officer);
+        ticket.setIssuer(saveOfficer.get());
         ticket.setOffence(Offence.valueOf(request.getOffence().toUpperCase()));
+        ticket.setVehicle(foundVehicle);
         Ticket savedTicket = tickets.save(ticket);
-        vehicle.get().getTickets().add(ticket);
-        vehicles.save(vehicle.get());
+
+        foundVehicle.getTickets().add(savedTicket);
+        vehicles.save(foundVehicle);
+
 
         return  mapIssueTicket(savedTicket);
 

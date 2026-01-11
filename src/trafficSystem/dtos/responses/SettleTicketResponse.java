@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 @Data
 public class SettleTicketResponse {
-    private String  id;
+    private String  TicketId;
     private String  amount;
     private String date;
 }

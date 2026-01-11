@@ -11,11 +11,5 @@ import java.util.List;
 
 public interface TicketRepository extends MongoRepository<Ticket,String> {
 
-        Ticket save(Ticket ticket);
-        Ticket findById(int id);
-        List<Ticket> findAll();
-        void deleteById(int id);
-        void deleteAll();
-        void delete(Ticket ticket);
-        long count();
+
 }

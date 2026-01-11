@@ -31,7 +31,7 @@ public class Mapper {
     public static Officer map(RegisterOfficerRequest request) {
         Officer officer = new Officer();
         officer.setName(request.getOfficerName());
-//        officer.setId(request.getOfficerId());
+       officer.setId(request.getOfficerId());
         officer.setEmail(request.getOfficerEmail());
         return officer;
     }
@@ -44,25 +44,26 @@ public class Mapper {
 
     public static RegisterVehicleResponse map(Vehicle savedVehicle) {
         RegisterVehicleResponse response = new RegisterVehicleResponse();
-        response.setVehicleId(savedVehicle.getId() + "");
+        response.setVehicleId(savedVehicle.getId() + " ");
         response.setOwnerName(savedVehicle.getOwner().getName());
         response.setVehicleFullDetail(savedVehicle.getName() + " " + savedVehicle.getModel() + " " + savedVehicle.getColour() + " " + savedVehicle.getYear());
         return response;
     }
 
-    public static IssueTicketReponse mapIssueTicket(Ticket savedTicket) {
-        IssueTicketReponse issueTicket = new IssueTicketReponse();
+    public static IssueTicketResponse mapIssueTicket(Ticket savedTicket) {
+        IssueTicketResponse issueTicket = new IssueTicketResponse();
         issueTicket.setTicketId(savedTicket.getId());
         issueTicket.setVehicle(savedTicket.getVehicle().getName() + " "  + savedTicket.getVehicle().getModel() + " " + savedTicket.getVehicle().getColour() + " " + savedTicket.getVehicle().getYear());
         issueTicket.setIssuer(savedTicket.getIssuer().getName());
         issueTicket.setAmount(savedTicket.getOffence().getAmount() + " ");
-        issueTicket.setDate(savedTicket.getDateOfBooking() + " ");
+        issueTicket.setDate(savedTicket.getDateOfBooking() + " " );
+        issueTicket.setOfficerId(savedTicket.getIssuer().getId());
         return issueTicket;
     }
 
     public static SettleTicketResponse mapSettleTicket(Ticket savedTicket) {
         SettleTicketResponse settleTicketResponse = new SettleTicketResponse();
-        settleTicketResponse.setId(savedTicket.getId());
+        settleTicketResponse.setTicketId(savedTicket.getId());
         settleTicketResponse.setAmount(savedTicket.getOffence().getAmount() + " ");
         settleTicketResponse.setDate(DateTimeFormatter.ofPattern("EEE, dd/MM/yyyy, hh:mm a").format(savedTicket.getDateOfPayment()));
 

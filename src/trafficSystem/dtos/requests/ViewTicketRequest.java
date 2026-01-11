@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ViewTicketRequest {
-    private String  VehicleId;
+    private String  vehicleId;
 
 }

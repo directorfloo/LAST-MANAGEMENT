@@ -1,18 +1,17 @@
 package trafficSystem.dtos.requests;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
 @Data
 public class IssueTicketRequest {
 
-    private String VehicleId ;
+    private String officerId;
+    private String vehicleId;
     private String offence;
-    private String officerEmail;
     private String officerName;
-    private String VehicleChaiseNumber;
-    private LocalDateTime dateOfBooking = LocalDateTime.now();
-    private LocalDateTime dateOfPayment = LocalDateTime.now();
+    private String vehicleChaiseNumber;
 
 }
